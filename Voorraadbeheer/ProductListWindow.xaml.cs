@@ -73,6 +73,11 @@ namespace Voorraadbeheer
                 AddProductWindow window = new AddProductWindow(_service, selectedProduct);
                 window.Show();
             }
+            else
+            { 
+                MessageBox.Show("Selecteer eerst een item.");
+                // return;  => overbodig
+            }
         }
     }
 }
