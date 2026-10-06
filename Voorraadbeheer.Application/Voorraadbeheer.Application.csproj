@@ -1,15 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>WinExe</OutputType>
-    <TargetFramework>net10.0-windows</TargetFramework>
-    <Nullable>enable</Nullable>
+    <TargetFramework>net10.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
-    <UseWPF>true</UseWPF>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Voorraadbeheer.Application\Voorraadbeheer.Application.csproj" />
     <ProjectReference Include="..\Voorraadbeheer.Domain\Voorraadbeheer.Domain.csproj" />
     <ProjectReference Include="..\Voorraadbeheer.Infrastructure\Voorraadbeheer.Infrastructure.csproj" />
   </ItemGroup>

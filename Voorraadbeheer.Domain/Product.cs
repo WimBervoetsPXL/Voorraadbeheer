@@ -1,4 +1,4 @@
-﻿namespace Voorraadbeheer.Models
+﻿namespace Voorraadbeheer.Domain
 {
     public class Product
     {

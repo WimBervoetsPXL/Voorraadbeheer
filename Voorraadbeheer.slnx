@@ -1,3 +1,6 @@
 <Solution>
+  <Project Path="Voorraadbeheer.Application/Voorraadbeheer.Application.csproj" Id="921bde7b-2847-4548-9041-24f8a76c7e2b" />
+  <Project Path="Voorraadbeheer.Domain/Voorraadbeheer.Domain.csproj" Id="cc404bb8-24e0-4531-816d-82b0eca8b112" />
+  <Project Path="Voorraadbeheer.Infrastructure/Voorraadbeheer.Infrastructure.csproj" Id="cf2d9e4f-c8d5-4d0b-be8e-2e00e56fbb93" />
   <Project Path="Voorraadbeheer/Voorraadbeheer.csproj" />
 </Solution>

@@ -9,8 +9,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using Voorraadbeheer.Models;
-using Voorraadbeheer.Services;
+using Voorraadbeheer.Application;
+using Voorraadbeheer.Domain;
+using Voorraadbeheer.Infrastructure;
 
 namespace Voorraadbeheer
 {
@@ -19,11 +20,14 @@ namespace Voorraadbeheer
     /// </summary>
     public partial class ProductListWindow : Window
     {
-        private ProductRepository _repository = new ProductRepository();
+        private ProductService _service;
 
         public ProductListWindow()
         {
             InitializeComponent();
+
+            ProductRepository repository = new ProductRepository();
+            _service = new ProductService(repository);
 
             ShowProducts();
         }
@@ -32,7 +36,7 @@ namespace Voorraadbeheer
         {
             // Load all products from repository
             productsListBox.Items.Clear();
-            foreach (Product product in _repository.GetAllProducts())
+            foreach (Product product in _service.GetAllProducts())
             {
                 productsListBox.Items.Add(product);
             }
@@ -40,10 +44,9 @@ namespace Voorraadbeheer
 
         private void OnAddProduct_Clicked(object sender, RoutedEventArgs e)
         {
-            AddProductWindow window = new AddProductWindow();
+            AddProductWindow window = new AddProductWindow(_service);
             if (window.ShowDialog() == true)
             {
-                _repository.Add(window.NewProduct);
                 ShowProducts();
             }
         }
@@ -58,7 +61,7 @@ namespace Voorraadbeheer
 
             if(productsListBox.SelectedItem is Product selectedProduct)
             {
-                _repository.Remove(selectedProduct);
+                _service.Remove(selectedProduct);
                 ShowProducts();
             }
         }
@@ -67,7 +70,7 @@ namespace Voorraadbeheer
         {
             if (productsListBox.SelectedItem is Product selectedProduct)
             {
-                AddProductWindow window = new AddProductWindow(selectedProduct);
+                AddProductWindow window = new AddProductWindow(_service, selectedProduct);
                 window.Show();
             }
         }

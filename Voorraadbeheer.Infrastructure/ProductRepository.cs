@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Voorraadbeheer.Models;
+using Voorraadbeheer.Domain;
 
-namespace Voorraadbeheer.Services
+namespace Voorraadbeheer.Infrastructure
 {
     public class ProductRepository
     {
